@@ -1,6 +1,6 @@
 %!PS-Adobe-3.0
 %%Orientation: Portrait
-%%Pages: 23
+%%Pages: 24
 %%EndComments
 %%BeginSetup
 [(Shamir's Secret) (Sharing Codex)]
@@ -28,12 +28,14 @@
 (OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE)
 (SOFTWARE.)
 ]
+(WARNING:)
 [
-(WARNING: Seriously, this is a work in progress, and it is only a concept right now.)
+(Seriously, this is a work in progress, and it is only a concept right now.)
 (If you try to use this for your valuable data, I promise you will lose your data.)
-(You will lose this document and come back here only to find that I have made incompatible changes,)
-(and your data is lost forever. Even if you don't lose this document, there is no warranty or)
-(guarantee of any kind that you will be able to recover successfully recover your data.)
+(You will lose this document and come back here only to find that I have made)
+(incompatible changes, and your data is lost forever. Even if you don't lose)
+(this document, there is no warranty or guarantee of any kind that you will be)
+(able to recover successfully recover your data.)
 ]
 %************************************************************************
 %************************************************************************
@@ -48,34 +50,89 @@
 %*
 %* Define variables for the preceeding front matter text.
 %*
-/warning exch def
+/warning [ 4 2 roll exch [ exch ] exch ] def
 /MIT exch def
 /ver exch def
 /title exch def
 
-/README [
-(MATERIALS: Scissors, X-Acto knife, brass fasteners)
-()
-(CONSTRUCTION:)
-(The bottom discs are the discs with a small circle in the center of them.)
-(The top discs are the discs with a small cross in the centre. All the top discs are identical. Cut out each disc.)
-(Cut out the small centre circle in each the bottom discs. Cut out each of the 32 squares of each top disc.)
-(Cut a slit along one one of the small lines of the cross in each of the top discs.)
-(Pass the brass fastener through a top disc and bottom disc.)
-(Fold the legs of the fastener apart to secure the top and bottom discs together.)
-(The two discs should now be able to rotate about their common centre.)
-()
-(SECRET RECOVERY:)
-(Find 2 of your secured shares.)
-(Make sure all your shares have the same identifier and a valid checksum (see checksum worksheet).)
-(Dial the recover share disc to the share index of the first secured share (the 5th character).)
-(Look up the symbol associated with the share index of the other share.)
-(Set your translation disc to that symbol and translate the first secured share by looking up every charater in turn.)
-(Dial the recover share disc to the share index of the second secured share (the 5th character).)
-(Look up the symbol associated with the share index of the first share.)
-(Set your translation disc to that symbol and translate the second secured share by looking up every charater in turn.)
-(Add the two translated shares, character by character, using the Addition disc.)
-(The result is your secret share and will have share index S and a valid checksum.)
+%******************
+%* Main text content
+%*
+/allPageContent [
+  [
+    /section (Overview / Cheatsheet) /endsection
+    /notoc % turn off table of contents indexing
+    /dropcap (C) (ryptography is the art of hiding information. In particular, Shamir's)
+    (Secret Sharing Scheme (SSSS) is used to hide secrets in a distributed way.)
+    (A secret is split into multiple parts, called shares, that can be given)
+    (to different people or kept in separate places. The)
+    (shares can then be  used to reconstruct the original secret. For the)
+    (wizards in the Bitcoin community, SSSS can be use to hide the single BIP32 master)
+    (seed from which all their private keys are derived.)
+    /paragraph
+    (This codex describes a way for users, assisted by paper computers in the)
+    (form of slide charts \(volvelles\) and circular slide rules, to perform)
+    (checksums and SSSS on their Bitcoin secrets.)
+
+    /subsection (Assembly) /endsubsection
+    /bold (You will need:) /normal (craft knife, cardstock or heavy paper, brass fasteners, disc printouts.) /linebreak
+    (Using the printouts from Module 0 \(which have pictographic instructions\),)
+    /startlist
+    /listitem1 (Cut out each disc with scissors. Cut out the windows on the top discs with the craft knife.) /endlistitem
+    /listitem1 (Cut out the small centre circle in each bottom disc.)
+      (Cut a slit along one one of the small lines of the cross in each top disc.) /endlistitem
+    /listitem1 (Attach the discs with a brass fastener through the centre holes.) /endlistitem
+
+    /subsection (Initial \(First k\) Share Creation) /endsubsection
+    /bold (You will need:) /normal (Addition Volvelle, Dice Worksheet, Checksum Worksheet, pencil and eraser)
+    /linebreak
+    (For each of your initial k shares, you should)
+    /startlist
+    /listitem1 (Generate random data by rolling dice, following the instructions on the Dice Worksheet.) /endlistitem
+    /listitem1 (Follow the instructions on the Checksum Worksheet to affix a checksum.) /endlistitem
+
+    /subsection (Derived \(Remaining\) Share Creation) /endsubsection
+    /bold (You will need:) /normal (Addition Volvelle, Multiplication/Translation Wheel, pencil)
+    /startlist
+    /listitem1 (Translate the initial shares using the symbols on the Constructing Shares page.) /endlistitem
+    /listitem1 (Add the translated initial shares to get the new derived share.) /endlistitem
+
+    /subsection (Secret Recovery) /endsubsection
+    /bold (You will need:) /normal (Addition Volvelle, Multiplication/Translation Wheel, Recovery Wheel, pencil)
+    (To recover your secret you must have k shares available. Then)
+    /startlist
+    /listitem1 (Look up their recovery symbols with the Recovery Wheel.) /endlistitem
+    /listitem1 (Multiply all the symbols for each share with the Multiplication Wheel to get)
+    (a single symbol for each share.) /endlistitem
+    /listitem1 (Translate the share by that symbol.) /endlistitem
+    /listitem1 (Add all the translated shares to get your secret.) /endlistitem
+    /toc % turn off table of contents indexing
+  ] [ % pagebreak
+    /section (Part I: High-Level Introduction) /endsection
+  ] [ % pagebreak
+    /section (Part II: Detailed Introduction) /endsection
+    /subsection (II.1. Tables and Volvelles) /endsubsection
+    /subsection (II.2. Data Encoding) /endsubsection
+  ] [ % pagebreak
+    /subsection (II.3. Secret Sharing) /endsubsection
+    /subsubsection (II.3.a. Initial Share Generation) /endsubsubsection
+    /subsubsection (II.3.b. Derived Share Generation) /endsubsubsection
+    /subsubsection (II.3.c. Distribution) /endsubsubsection
+    /subsection (II.4. Recovery) /endsubsection
+  ] [ % pagebreak
+    /section (Part III: Worksheets) /endsection
+    /subsection (Dice Worksheet) /endsubsection
+  ] [ % pagebreak
+    /subsection (Checksum Worksheet) /endsubsection
+  ] [ % pagebreak
+    /subsection (Constructing Shares Worksheet) /endsubsection
+  ] [ % pagebreak
+    /subsection (Addition Worksheets) /endsubsection
+  ] [ % pagebreak
+
+    /section (Module 0: Volvelles) /endsection
+    /section (Module 1: Extra Worksheets) /endsection
+  ]
 ] def
 
 %******************
@@ -246,6 +303,39 @@
 %******************
 %* Helper Functions and Utilities
 %*
+/nullFont <<
+  /face /Times-Roman
+  /size 12
+  /yDisp 0
+  /rgbColor [ 0 0 0 ]
+  /underline false
+>> def
+
+/textFont <<
+  /face /Times-Roman
+  /boldface /Times-Bold
+  /size 12
+  /footnotesize 10
+  /yDisp 13
+  /rgbColor [ 0 0 0 ]
+  /underline false
+>> def
+
+/sectionFont <<
+  /face /Times-Roman
+  /size 32
+  /yDisp 32
+  /rgbColor [ 0.820 0.204 0.220 ]
+  /underline true
+>> def
+
+/subSectionFont <<
+  /face /Times-Roman
+  /size 24
+  /yDisp 20
+  /rgbColor [ 0.820 0.204 0.220 ]
+  /underline true
+>> def
 
 /pgsize currentpagedevice /PageSize known
   { currentpagedevice /PageSize get
@@ -279,6 +369,8 @@ end } bind def
 /thin 0.4 def
 /thick 0.8 def
 /verythick 1.2 def
+
+/brass { 0.7098 0.651 0.2588 } def
 
 /glyphwidth {
   gsave
@@ -369,6 +461,320 @@ circtextdict begin
 
 /pi 3.1415923 def
 end
+
+%******************
+%* Content Rendering
+%*
+%* The bulk of the text is rendered using this streaming parser.
+%*
+
+% Shows a dropcap (giant letter with a bounding box around it)
+%
+% Takes coordinates to start drawing at, and the character to draw
+% the bounding box in. Returns the height and width of the bounding
+% box
+/drawDropcap { % x y strdata -> h w
+  10 dict begin
+  gsave
+    /Times-Roman findfont 64 scalefont setfont
+    3 copy pop moveto
+
+    gsave
+      dup false charpath strokepath flattenpath pathbbox
+      { /y2 /x2 /y1 /x1 } {exch def} forall
+      % Flip box so it is going downward rather than upward
+      /y2 y1 2 mul y2 sub store
+    grestore
+
+    % Draw letter
+    0 y2 y1 sub rmoveto
+    gsave
+      dup true charpath
+      x1 y2 moveto x1 y1 lineto x2 y1 lineto x2 y2 lineto closepath
+      0.820 0.204 0.220 setrgbcolor
+      % TODO Replace with a pattern fill.
+      fill
+    grestore
+    dup false charpath
+    x1 y2 moveto x1 y1 lineto x2 y1 lineto x2 y2 lineto closepath
+    1 setlinewidth
+    stroke
+
+    % Return width and height
+    pop pop
+    x2 x1 sub
+    y1 y2 sub
+  grestore
+  end
+} bind def
+
+% Displays a single word on the current device with the current font
+% Returns the number of points before the end of the line, which will be
+% negative in case of an overrun
+/showWord { % word kernX maxX -> distance to maxX
+  10 dict begin
+  {/actuallyDraw /maxX /kernX /word} { exch def } forall
+
+  <<
+    /nametype {
+      currentpoint {/y /x} { exch def } forall
+
+      <<
+        /footnotemark {
+          /footnoteCount footnoteCount 1 add store
+          % We need to idiv the footnote count by two since we double-increment
+          % it accidentally (once when simulating and once when actually drawing)
+          footnoteCount 2 idiv 2 string cvs
+          gsave
+            currentFont /face get findfont 6 scalefont setfont
+            0 5 rmoveto
+            actuallyDraw {
+              show
+            } {
+              stringwidth pop 0 rmoveto
+            } ifelse
+          grestore
+          % Adjust kerning because /footnotemark is a word
+          kernX 0 rmoveto
+          % Add an actual space though so the footnote isn't too crammed
+          actuallyDraw { ( ) show } { ( ) stringwidth pop 0 rmoveto } ifelse
+        }
+        /bold {
+          % add kerning because /bold is accounted for as a "word"
+          % This causes distortion (extra spacing around bold text)
+          % but empirically it seems pretty-much invisible
+          kernX 0 rmoveto
+          currentFont /boldface get findfont currentFont /size get scalefont setfont
+        }
+        /normal {
+          kernX 0 rmoveto
+          currentFont /face get findfont currentFont /size get scalefont setfont
+        }
+      >> dup
+      word known { word get exec } { pop } ifelse
+      1 % arbitrary positive return value
+    }
+    /stringtype {
+      % Prepend kerning (we expect the caller to set 0 kerning on the first word)
+      kernX 0 rmoveto
+      % Draw the actual word
+      actuallyDraw {
+        word show
+        maxX currentpoint pop sub % compute return value prior to trailing space
+      } {
+        word stringwidth rmoveto
+        maxX currentpoint pop sub % compute return value prior to trailing space
+      } ifelse
+      ( ) show % print a space so that copy/paste has a hope of working
+    }
+  >> begin word type exec end
+
+  end
+} bind def
+
+% Takes as input a single page's contents and draws it
+/drawPageContent { % x y [page content] -> nothing
+  20 dict begin
+  {/pagecontent /yorigin /xorigin} { exch def } forall
+
+  xorigin yorigin moveto
+
+  % state machine
+  /buffer 200 string def
+  <<
+    % state
+    /state /buffering
+    /currentFont nullFont
+    /x xorigin
+    /y yorigin
+    /dropcapWidth 0
+    /dropcapHeight 0
+    /maxX 540 % FIXME
+    /wordBuffer 100 array
+    /wordN 0
+    /totalKern 0
+    /footnoteCount 0
+    /listItemCount 0
+
+    /offsetX {
+      x add /x exch store
+      x y moveto
+    }
+
+    /offsetY {
+      y add /y exch store
+      x y moveto
+    }
+
+    /setCurrentFont {
+      /currentFont exch store
+      currentFont /face get findfont
+      currentFont /size get scalefont
+      setfont
+      currentFont /rgbColor get aload pop setrgbcolor
+    }
+
+    % Output text, buffering mode (needed for fill justification)
+    /buffering {
+      /word exch def
+
+      % Simulate writing the word, to see if it causes an overrun. If so...
+      word 0 maxX false showWord dup 0 lt {
+        % ...dump the previous line, with kerning
+        totalKern wordN 1 gt { wordN 1 sub div } if dumpLastLine
+
+        % Then drop y
+        y dropcapHeight lt not % if we currently aren't past the dropcap...
+        currentFont /yDisp get neg offsetY
+        y dropcapHeight lt and { % ...but after moving, we are...
+          dropcapWidth neg offsetX % ...then shift x back to its original value
+        } if
+
+        % Then retry the word
+        pop word buffering exec
+      } {
+        % ...otherwise, add word to buffer for next line's display
+        /totalKern exch store
+        wordBuffer wordN word put
+        /wordN wordN 1 add store
+      } ifelse
+    }
+
+    % Draw the contents of the current line buffer and flush it
+    /dumpLastLine {
+      x y moveto
+      wordN 0 gt {
+        wordBuffer 0 get 0 maxX true showWord pop
+        wordBuffer 1 wordN 1 sub getinterval {
+          1 index maxX true showWord pop
+        } forall
+      } if
+      pop
+      /wordN 0 store
+    }
+
+    /doLineBreak {
+      0 dumpLastLine
+      currentFont /yDisp get neg offsetY
+    }
+
+    % Output a dropcap
+    /dropcapOneshot {
+      % show dropcap, bumped up a bit
+      x exch y 8 add exch drawDropcap
+      % Store dropcap width and height of the bottom of the dropcap
+      /dropcapHeight exch y sub neg store
+      /dropcapWidth exch 4 add store
+      % Move x and switch back to normal text mode
+      dropcapWidth offsetX
+      /state /buffering store
+    }
+
+    % content parsing
+    /stringtype {
+      { % loop through words in the string
+        ( ) search {
+          exch pop
+          state load exec % Execute current state on word
+        } {
+          state load exec % Execute current state on last word
+          exit
+        } ifelse
+      } loop
+    }
+    /nametype {
+      <<
+        /notoc {} % just eat table-of-contents token
+        /toc {} % just eat table-of-contents token
+        /dropcap { /state /dropcapOneshot store }
+        /linebreak { doLineBreak }
+        /paragraph { doLineBreak doLineBreak }
+        /startlist { /listItemCount 0 store }
+        /listitem* {
+          doLineBreak
+          /y y 4 sub store
+          /x x 36 add store
+          x y moveto
+          /bullet glyphwidth 8 add neg 0 rmoveto
+          /bullet glyphshow
+          x y moveto
+        }
+        /listitem1 {
+          doLineBreak
+          /listItemCount listItemCount 1 add store
+          /y y 4 sub store
+          /x x 36 add store
+          x y moveto
+          -5 0 rmoveto
+          listItemCount 2 string cvs
+          dup stringwidth pop neg 0 rmoveto show
+          (.) show
+          x y moveto
+        }
+        /endlistitem {
+          0 dumpLastLine
+          /x x 36 sub store
+          x y moveto
+        }
+        /section {
+          doLineBreak doLineBreak
+          sectionFont setCurrentFont
+          doLineBreak
+        }
+        /endsection {
+          0 dumpLastLine
+          % Draw underline
+          currentpoint
+          x y 4 sub moveto
+          pop y 4 sub lineto 2 setlinewidth stroke
+
+          doLineBreak
+          textFont setCurrentFont
+          /state /buffering store
+        }
+        /subsection {
+          doLineBreak doLineBreak
+          subSectionFont setCurrentFont
+          doLineBreak
+        }
+        /endsubsection {
+          0 dumpLastLine
+          % Draw underline
+          currentpoint
+          x y 4 sub moveto
+          pop y 4 sub lineto 1.5 setlinewidth stroke
+
+          doLineBreak
+          textFont setCurrentFont
+          /state /buffering store
+        }
+        /footnotes {
+          0 dumpLastLine
+
+          /footnoteCount 0 store
+          /y y 12 sub store
+          x y moveto x 100 add y lineto 0.5 setlinewidth stroke
+          /y y 12 sub store
+          x y moveto
+          currentFont /face get findfont currentFont /footnotesize get scalefont setfont
+        }
+      >> exch 2 copy
+      known {
+        get exec
+      } {
+        % just pass unknown symbols to buffering so that they will wind up
+        % in the line buffer, and take effect both during the simulated
+        % (spacing-computing) layout and the real layout
+        buffering pop
+      } ifelse
+    }
+  >> begin
+    pagecontent { dup type exec } forall
+    0 dumpLastLine
+  end
+
+  end
+} bind def
 
 %******************
 %* Font Definitions
@@ -530,6 +936,24 @@ end definefont pop
   0 sz eq not {
     sz 2 div sz neg rlineto sz neg 0 rlineto closepath fill
   } if
+} bind def
+
+% drawPin : sz --
+% draws a sylized brass fasstener
+/drawPin {
+  /sz exch def
+  currentpoint newpath moveto
+  sz -2 div sz 3.5 mul rmoveto
+  sz 0 rlineto
+  sz 0 sz sz sz -2 div sz rcurveto
+  sz -1.5 mul 0 sz -1.5 mul sz neg sz -2 div sz neg rcurveto
+  0 sz -3 mul rlineto
+  sz 2 div dup neg rlineto
+  sz 2 div dup rlineto
+  0 sz 3 mul rlineto
+  closepath
+  gsave brass setrgbcolor fill grestore
+  stroke
 } bind def
 
 20 dict dup /multiplicationDisc exch def begin
@@ -795,18 +1219,101 @@ showpage
 %%BeginPageSetup
 /pgsave save def
 %%EndPageSetup
-/Helvetica findfont 6 scalefont setfont
+/Courier findfont 10 scalefont setfont
 40 750 moveto
-MIT {gsave ((c)) search {show pop /copyright glyphshow} if show grestore 0 -8 rmoveto} forall
-/Helvetica findfont 6 scalefont setfont
-warning {gsave show grestore 0 -7 rmoveto} forall
+MIT {gsave ((c)) search {show pop /copyright glyphshow} if show grestore 0 -12 rmoveto} forall
+/Helvetica findfont 14 scalefont setfont
 0 -16 rmoveto
-/Helvetica findfont 8 scalefont setfont
-README {gsave show grestore 0 -10 rmoveto} forall
+468 14 warning showParagraphs
 pgsave restore
 showpage
 
+%****************************************************************
+%*
+%* Table of Contents
+%*
+%****************************************************************
 %%Page: 3 3
+%%BeginPageSetup
+/pgsave save def
+%%EndPageSetup
+
+/Helvetica-Bold findfont 18 scalefont setfont
+pgsize aload pop 72 sub exch 2 div exch
+moveto (Table of Contents) centreshow
+
+[1 4] 0 setdash
+/Helvetica findfont 14 scalefont setfont
+/pagenum 1 def
+
+<<
+  /x 72 def
+  /xnum pgsize aload pop pop 108 sub def
+  /y pgsize aload pop exch pop 108 sub def
+  /displaying false
+  /tocOn true
+
+  /stringtype {
+    displaying tocOn and {
+      % Section title
+      x y moveto show
+      % Horizontal line
+      % For aligned dots we go out of our way to start the line on the right hand side.
+      currentpoint xnum 5 sub y moveto lineto stroke
+      % Page number
+      xnum y moveto pagenum 2 string cvs show
+      /y y 24 sub store
+    } { pop } ifelse
+  }
+  /nametype {
+    <<
+      /section 1
+      /endsection -1
+      /subsection 2
+      /endsubsection -2
+      /subsubsection 3
+      /endsubsubsection -3
+    >> exch 2 copy known {
+      get
+      % For top-level sections bump y down an extra space
+      dup 1 eq { /y y 15 sub store } if
+      % For all sections just adjust x accordingly
+      /x 1 index 20 mul x add store
+      /displaying exch 0 gt store
+    } {
+      dup
+      /notoc eq { /tocOn false store } if
+      /toc eq { /tocOn true store } if
+      pop
+    } ifelse
+  }
+>> begin
+
+allPageContent { % forall pages
+  { % forall symbols in page
+    dup type exec
+  } forall
+  /pagenum pagenum 1 add store
+} forall
+
+end
+
+pgsave restore
+showpage
+
+%****************************************************************
+%*
+%* Main Content
+%*
+%****************************************************************
+%%Page: 4 4
+%%BeginPageSetup
+/pgsave save def
+%%EndPageSetup
+72 pgsize aload pop 36 sub exch pop allPageContent 0 get drawPageContent
+pgsave restore showpage
+
+%%Page: 5 5
 %%BeginPageSetup
 /pgsave save def
 %%EndPageSetup
@@ -923,7 +1430,7 @@ end
 
 pgsave restore
 showpage
-%%Page: 4 4
+%%Page: 6 6
 %%BeginPageSetup
 /pgsave save def
 %%EndPageSetup
@@ -937,7 +1444,7 @@ showpage
 (Recover Share) /Codex code2 /Codex code [ 32 permS 1 31 getinterval aload pop ] drawBottomWheelPage
 pgsave restore
 showpage
-%%Page: 5 5
+%%Page: 7 7
 %%BeginPageSetup
 /pgsave save def
 %%EndPageSetup
@@ -954,27 +1461,11 @@ grestore
 
 pgsave restore
 showpage
-%%Page: 6 6
-%%BeginPageSetup
-/pgsave save def
-%%EndPageSetup
-{xor} (Addition) /Codex code 2 copy perm drawBottomWheelPage
-
-pgsave restore
-showpage
-%%Page: 7 7
-%%BeginPageSetup
-/pgsave save def
-%%EndPageSetup
-showTopWheelPage
-
-pgsave restore
-showpage
 %%Page: 8 8
 %%BeginPageSetup
 /pgsave save def
 %%EndPageSetup
-showTopWheelPage
+{xor} (Addition) /Codex code 2 copy perm drawBottomWheelPage
 
 pgsave restore
 showpage
@@ -987,6 +1478,22 @@ showTopWheelPage
 pgsave restore
 showpage
 %%Page: 10 10
+%%BeginPageSetup
+/pgsave save def
+%%EndPageSetup
+showTopWheelPage
+
+pgsave restore
+showpage
+%%Page: 11 11
+%%BeginPageSetup
+/pgsave save def
+%%EndPageSetup
+showTopWheelPage
+
+pgsave restore
+showpage
+%%Page: 12 12
 %%BeginPageSetup
 /pgsave save def
 %%EndPageSetup
@@ -1084,7 +1591,7 @@ end
 
 pgsave restore
 showpage
-%%Page: 11 11
+%%Page: 13 13
 %%BeginPageSetup
 /pgsave save def
 %%EndPageSetup
@@ -1092,7 +1599,7 @@ showpage
 
 pgsave restore
 showpage
-%%Page: 12 12
+%%Page: 14 14
 %%BeginPageSetup
 /pgsave save def
 %%EndPageSetup
@@ -1100,7 +1607,7 @@ showpage
 
 pgsave restore
 showpage
-%%Page: 13 13
+%%Page: 15 15
 %%BeginPageSetup
 /pgsave save def
 %%EndPageSetup
@@ -1108,7 +1615,7 @@ showpage
 
 pgsave restore
 showpage
-%%Page: 14 14
+%%Page: 16 16
 %%BeginPageSetup
 /pgsave save def
 %%EndPageSetup
@@ -1116,7 +1623,7 @@ showpage
 
 pgsave restore
 showpage
-%%Page: 15 15
+%%Page: 17 17
 %%BeginPageSetup
 /pgsave save def
 %%EndPageSetup
@@ -1124,7 +1631,7 @@ showpage
 
 pgsave restore
 showpage
-%%Page: 16 16
+%%Page: 18 18
 %%BeginPageSetup
 /pgsave save def
 %%EndPageSetup
@@ -1132,7 +1639,7 @@ showpage
 
 pgsave restore
 showpage
-%%Page: 17 17
+%%Page: 19 19
 %%BeginPageSetup
 /pgsave save def
 %%EndPageSetup
@@ -1140,7 +1647,7 @@ showpage
 
 pgsave restore
 showpage
-%%Page: 18 18
+%%Page: 20 20
 %%BeginPageSetup
 /pgsave save def
 %%EndPageSetup
@@ -1148,14 +1655,45 @@ showpage
 
 pgsave restore
 showpage
-%%Page: 19 19
+%%Page: 21 21
 %%BeginPageSetup
 /pgsave save def
 %%EndPageSetup
 % gsave verythin line marginpath stroke grestore
+recoveryDisc begin
+% Draw assembly diagram
+10 dict begin
+/yscale 0.25 def
+/pinoffset -55 def
+gsave
+  120 700 translate
+  0.4 dup scale
+    % pin size is the width of the cross
+   0 pinoffset neg moveto 4.5 2 mul drawPin
+  gsave
+    0 pinoffset neg moveto 0 0 lineto
+    [4.5 4.5] 4.5 1.5 mul setdash stroke
+  grestore
+  matrix currentmatrix
+    1 yscale scale
+    -90 rotate
+    drawTopDisc
+    newpath 0 0 innerRadius 360 0 arcn
+  setmatrix
+  0 -60 translate
+  matrix currentmatrix
+    1 yscale scale
+    0 0 radius 2 mul 0 360 arc clip
+    drawBottomDisc
+  setmatrix
+  gsave
+    0 pinoffset neg moveto 0 0 lineto
+    [4.5 4.5] 4.5 1.5 mul setdash stroke
+  grestore
+grestore
+end
 % Move cursor to center of page
 pgsize aload pop 2 div exch 2 div exch translate
-recoveryDisc begin
 % angle the page
   /pageangle pgsize aload pop radius angleinbox def
   /buffer 2 def
@@ -1170,7 +1708,7 @@ recoveryDisc begin
 end
 pgsave restore
 showpage
-%%Page: 20 20
+%%Page: 22 22
 %%BeginPageSetup
 /pgsave save def
 %%EndPageSetup
@@ -1207,7 +1745,7 @@ end
 
 pgsave restore
 showpage
-%%Page: 21 21
+%%Page: 22 22
 %%BeginPageSetup
 /pgsave save def
 %%EndPageSetup
@@ -1228,38 +1766,94 @@ end
 
 pgsave restore
 showpage
-%%Page: 22 22
+%%PageOrientation: Landscape
+%%Page: 23 23
 %%BeginPageSetup
 /pgsave save def
 %%EndPageSetup
+90 rotate 0 -750 translate
+
 /Helvetica-Bold findfont 10 scalefont setfont
-pgsize aload pop 40 sub exch 2 div exch
+pgsize aload pop exch pop 2 div 700
 moveto (ms32 Checksum Table) centreshow
 
-0 1 31 {
-0 1 31 {
-2 copy 730 exch 7 mul sub 1 index 11 idiv 240 mul sub exch 11 mod 50 mul 30 add exch moveto
-2 copy
-perm exch get exch perm exch get exch
-2 copy
-code exch get exch code exch get exch
-/Courier-Bold findfont polymodulus length 6 le {8} {4.5} ifelse scalefont setfont
-exch glyphshow glyphshow
-/Courier findfont polymodulus length 6 le {8} {4.5} ifelse scalefont setfont
-3 0 rmoveto
-polymodulus length array
-3 1 roll
-polymodshift2 0 1 polymodulus length 1 sub { 3 copy get code exch get 3 2 roll exch put } for
-pop
-{glyphshow} forall
-pop
-} for
-pop
+/Courier findfont 8.5 scalefont setfont
+0 1 15 {
+  /xidx exch def
+  0 1 31 {
+    /yidx exch def
+    yidx 2 mod 0 eq {0.5 0.2 0.0} {0 0 0} ifelse setrgbcolor
+
+    % Position for bold letters
+    xidx 8 mod 90 mul 30 add
+    680 yidx 7.5 mul sub xidx 8 idiv 270 mul sub
+    moveto
+
+    % Display bold letters
+    gsave
+      /Courier-Bold findfont 8.5 scalefont setfont
+      code perm xidx get get glyphshow
+      code perm yidx get get glyphshow
+    grestore
+
+    % Compute and display "checksum table" entry which is checksum of AB00...00
+    12 0 rmoveto
+    perm xidx get perm yidx get polymodshift2
+    % Draw it
+    0 1 polymodulus length 1 sub {
+      1 index exch get % value from polymod
+      code exch get glyphshow
+    } for
+    pop
+  } for
 } for
 
 pgsave restore
 showpage
-%%Page: 23 23
+%%Page: 24 24
+%%PageOrientation: Landscape
+%%BeginPageSetup
+/pgsave save def
+%%EndPageSetup
+90 rotate 0 -750 translate
+/Helvetica-Bold findfont 10 scalefont setfont
+pgsize aload pop exch pop 2 div 700
+moveto (ms32 Checksum Table) centreshow
+
+/Courier findfont 8.5 scalefont setfont
+16 1 31 {
+  /xidx exch def
+  0 1 31 {
+    /yidx exch def
+    yidx 2 mod 0 eq {0.5 0.2 0.0} {0 0 0} ifelse setrgbcolor
+
+    % Position for bold letters
+    xidx 16 sub 8 mod 90 mul 30 add
+    680 yidx 7.5 mul sub xidx 16 sub 8 idiv 270 mul sub
+    moveto
+
+    % Display bold letters
+    gsave
+      /Courier-Bold findfont 8.5 scalefont setfont
+      code perm xidx get get glyphshow
+      code perm yidx get get glyphshow
+    grestore
+
+    % Compute and display "checksum table" entry which is checksum of AB00...00
+    12 0 rmoveto
+    perm xidx get perm yidx get polymodshift2
+    % Draw it
+    0 1 polymodulus length 1 sub {
+      1 index exch get % value from polymod
+      code exch get glyphshow
+    } for
+    pop
+  } for
+} for
+
+pgsave restore
+showpage
+%%Page: 24 24
 %%PageOrientation: Landscape
 %%BeginPageSetup
 /pgsave save def
