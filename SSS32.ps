@@ -1,6 +1,6 @@
 %!PS-Adobe-3.0
 %%Orientation: Portrait
-%%Pages: 23
+%%Pages: 24
 %%EndComments
 %%BeginSetup
 [(Shamir's Secret) (Sharing Codex)]
@@ -1229,37 +1229,93 @@ end
 pgsave restore
 showpage
 %%Page: 22 22
+%%PageOrientation: Landscape
 %%BeginPageSetup
 /pgsave save def
 %%EndPageSetup
+90 rotate 0 -750 translate
+
 /Helvetica-Bold findfont 10 scalefont setfont
-pgsize aload pop 40 sub exch 2 div exch
+pgsize aload pop exch pop 2 div 700
 moveto (ms32 Checksum Table) centreshow
 
-0 1 31 {
-0 1 31 {
-2 copy 730 exch 7 mul sub 1 index 11 idiv 240 mul sub exch 11 mod 50 mul 30 add exch moveto
-2 copy
-perm exch get exch perm exch get exch
-2 copy
-code exch get exch code exch get exch
-/Courier-Bold findfont polymodulus length 6 le {8} {4.5} ifelse scalefont setfont
-exch glyphshow glyphshow
-/Courier findfont polymodulus length 6 le {8} {4.5} ifelse scalefont setfont
-3 0 rmoveto
-polymodulus length array
-3 1 roll
-polymodshift2 0 1 polymodulus length 1 sub { 3 copy get code exch get 3 2 roll exch put } for
-pop
-{glyphshow} forall
-pop
-} for
-pop
+/Courier findfont 8.5 scalefont setfont
+0 1 15 {
+  /xidx exch def
+  0 1 31 {
+    /yidx exch def
+    yidx 2 mod 0 eq {0.5 0.2 0.0} {0 0 0} ifelse setrgbcolor
+
+    % Position for bold letters
+    xidx 8 mod 90 mul 30 add
+    680 yidx 7.5 mul sub xidx 8 idiv 270 mul sub
+    moveto
+
+    % Display bold letters
+    gsave
+      /Courier-Bold findfont 8.5 scalefont setfont
+      code perm xidx get get glyphshow
+      code perm yidx get get glyphshow
+    grestore
+
+    % Compute and display "checksum table" entry which is checksum of AB00...00
+    12 0 rmoveto
+    perm xidx get perm yidx get polymodshift2
+    % Draw it
+    0 1 polymodulus length 1 sub {
+      1 index exch get % value from polymod
+      code exch get glyphshow
+    } for
+    pop
+  } for
 } for
 
 pgsave restore
 showpage
 %%Page: 23 23
+%%PageOrientation: Landscape
+%%BeginPageSetup
+/pgsave save def
+%%EndPageSetup
+90 rotate 0 -750 translate
+/Helvetica-Bold findfont 10 scalefont setfont
+pgsize aload pop exch pop 2 div 700
+moveto (ms32 Checksum Table) centreshow
+
+/Courier findfont 8.5 scalefont setfont
+16 1 31 {
+  /xidx exch def
+  0 1 31 {
+    /yidx exch def
+    yidx 2 mod 0 eq {0.5 0.2 0.0} {0 0 0} ifelse setrgbcolor
+
+    % Position for bold letters
+    xidx 16 sub 8 mod 90 mul 30 add
+    680 yidx 7.5 mul sub xidx 16 sub 8 idiv 270 mul sub
+    moveto
+
+    % Display bold letters
+    gsave
+      /Courier-Bold findfont 8.5 scalefont setfont
+      code perm xidx get get glyphshow
+      code perm yidx get get glyphshow
+    grestore
+
+    % Compute and display "checksum table" entry which is checksum of AB00...00
+    12 0 rmoveto
+    perm xidx get perm yidx get polymodshift2
+    % Draw it
+    0 1 polymodulus length 1 sub {
+      1 index exch get % value from polymod
+      code exch get glyphshow
+    } for
+    pop
+  } for
+} for
+
+pgsave restore
+showpage
+%%Page: 24 24
 %%PageOrientation: Landscape
 %%BeginPageSetup
 /pgsave save def
